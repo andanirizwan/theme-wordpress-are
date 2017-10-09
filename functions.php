@@ -89,7 +89,92 @@ function bootstrap4_comment_form_fields( $fields ) {
 }
 add_filter( 'comment_form_default_fields', 'bootstrap4_comment_form_fields' );
 
+//markup
+//  add_theme_support('html5', array(
+//              'search-form',
+//              'comment-form',
+//              'comment-list',
+//              'gallery',
+//              'caption',
+// ));
 
+//customize
+// add_theme_support('custom-background', apply_filters('onphpid_theme_custom_background_args', array(
+//              'default-color' => 'ffffff',
+//              'default-image' => '',
+// )));
+
+// ------------------------semi toko online----------------------- //
+require get_template_directory() . '/products/post-type.php';
+require get_template_directory() . '/products/taxonomy.php';
+require get_template_directory() . '/products/metaboxes.php';
+
+function are_post_type()
+{
+     // add post-type
+     register_post_type(
+         'are_products',
+         array(
+             'labels' => array(
+               'name' => __('Products', 'semi-toko-online'),
+               'singular_name' => __('Product', 'semi-toko-online'),
+               'add_new'            => _x( 'Add New', 'product', 'semi-toko-online' ),
+               'add_new_item'       => __( 'Add New Product', 'semi-toko-online' ),
+               'new_item'           => __( 'New Product', 'twentytwelve' ),
+               'edit_item'          => __( 'Edit Product', 'semi-toko-online' ),
+               'view_item'          => __( 'View Product', 'semi-toko-online' ),
+               'all_items'          => __( 'All Products', 'semi-toko-online' ),
+             ),
+             'public' => true,
+             'supports' => array('title', 'editor', 'thumbnail'),
+             'has_archive' => true,
+             'rewrite' => array('slug'=>'product'),
+             'menu_position' => 5,
+             'menu_icon' => 'dashicons-cart'
+         )
+   );
+}
+ 
+ add_action('init', 'are_post_type');
+
+
+ // mendapatkan category product
+function stOnline_category($id)
+{
+  $category = get_the_terms( $id , 'product_category'); // return array|false|wp_error
+
+  if ($category) {
+    $list = '';
+    foreach ($category as $cat) {
+      $url = 'product-category/' . $cat->slug;
+      $list .= '<a href="'. home_url($url) .'">'. $cat->name .'</a>';
+      $list .= ', ';
+    }
+
+    return rtrim($list, ', ');
+  }
+
+  return ;
+}
+
+// mendapatkan tags product
+function stOnline_tags($id)
+{
+  $tags = get_the_terms( $id , 'product_tags'); // return array|false|wp_error
+
+  if ($tags) {
+    $list = '';
+    foreach ($tags as $tag) {
+      $url = 'product-tags/' . $tag->slug;
+      $list .= '<a href="'. home_url($url) .'">'. $tag->name .'</a>';
+      $list .= ', ';
+    }
+
+    return rtrim($list, ', ');
+  }
+
+  return ;
+}
 
  ?>
  
