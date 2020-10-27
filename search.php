@@ -9,7 +9,7 @@ get_header();
 
 <!-- arcive -->
 <div class="alert alert-primary"" role="alert">
- Halaman <span class="badge badge-secondary">Search</span>
+ Halaman <span class="badge badge-primary">Search</span>
 </div>
 
 <h3>Kata yang anda cari : " <?php echo $_GET['s']; ?> "</h3><br>
