@@ -37,7 +37,7 @@
 	
 <div class="jumbotron jumbotron-fluid">
 	<div class="container">
-	    <h1 class="display-3">Theme Wordpress</h1>
+	    <h1 class="display-3">Theme Wordpress are</h1>
 	    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
