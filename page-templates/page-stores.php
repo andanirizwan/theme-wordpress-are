@@ -5,7 +5,7 @@
 get_header();
 // wordpress wp query : https://codex.wordpress.org/Class_Reference/WP_Query
 $args = array(
-	'posts_per_page' => 4,
+	'posts_per_page' => 3,
 	'post_type' => 'are_products'
 );
 $posts = new WP_Query($args);
